@@ -1,0 +1,14 @@
+<div class="grid-wrapper" (click)="expandModal()">
+    <div class="grid-container">
+        <div *ngFor="let row of grid" class="grid-row">
+            <div *ngFor="let col of row" class="grid-item" id="x{{col.column}}y{{col.row}}"></div>
+        </div>
+    </div>
+    <div class="floatingDiv blinking" id="modal" >
+        <span>[PRESS START]</span>
+        <div class = "personalInfo">
+            <span (click)="typeTest()">PLAYER 1:</span> <span class="name hidden" id="name">Anthony Wash</span>
+        </div>
+        
+    </div>
+</div>
