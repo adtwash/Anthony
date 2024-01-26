@@ -4,11 +4,24 @@
             <div *ngFor="let col of row" class="grid-item" id="x{{col.column}}y{{col.row}}"></div>
         </div>
     </div>
-    <div class="floatingDiv blinking" id="modal" >
-        <span>[PRESS START]</span>
-        <div class = "personalInfo">
-            <span (click)="typeTest()">PLAYER 1:</span> <span class="name hidden" id="name">Anthony Wash</span>
+    <div class="floatingDiv blinking" id="modal">
+        <span class="start" id="start">[PRESS START]</span>
+        <div class="personalInfoContainer" id="personalInfoContainer">
+            <div class="personalInfo">
+                <span class="name typeTest" id="name">Anthony Wash</span>
+            </div>
+            <div class="personalInfo">
+                <span class="name typeTest" id="position">Test Engineer, Software Developer,</span>
+            </div>
+            <div class="personalInfo">
+                <span class="name typeTest" id="position2">Husband & Father</span>
+            </div>
         </div>
-        
+        <div class="personalInfo footer">
+            <span class="about highlight" id="about" (click)="expandAbout()">[About]</span>
+            <span class="work highlight" id="work" (click)="expandWork()">[Work]</span>
+            <span class="contact highlight" id="contact" (click)="expandContact()">[Contact]</span>
+        </div>
+
     </div>
 </div>

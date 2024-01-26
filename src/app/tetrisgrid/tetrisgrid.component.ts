@@ -166,15 +166,61 @@ export class TetrisgridComponent {
 
   public expandModal(){
     var modal = document.getElementById('modal');
+    var start = document.getElementById('start');
     modal?.classList.remove('blinking');
     modal?.classList.add('expanded');
     modal?.classList.add('paused');
+    start!.style.display = 'none';
+    this.typeTest();
   }
 
   public typeTest(){
     var name = document.getElementById('name');
-    name?.classList.add('typeTest');
-    name?.classList.remove('hidden');
+    var position = document.getElementById('position');
+    var position2 = document.getElementById('position2');
+    name?.classList.add('animateName');
+    //name?.classList.remove('hidden');
+    position?.classList.add('animatePosition');
+    position2?.classList.add('animatePosition2');
+  }
+
+  public expandAbout(){
+    var modal = document.getElementById('modal');
+    var personalInfo = document.getElementById('personalInfoContainer');
+    var work = document.getElementById('work');
+    var contact = document.getElementById('contact');
+    var about = document.getElementById('about');
+    modal?.classList.toggle('expandAbout');
+    personalInfo?.classList.toggle('verticalCollapse');
+    work?.classList.toggle('horizontalCollapse');
+    contact?.classList.toggle('horizontalCollapse');
+    about?.classList.toggle('center');
+  }
+
+  public expandWork(){
+    var modal = document.getElementById('modal');
+    var personalInfo = document.getElementById('personalInfoContainer');
+    var work = document.getElementById('work');
+    var contact = document.getElementById('contact');
+    var about = document.getElementById('about');
+    modal?.classList.toggle('expandAbout');
+    personalInfo?.classList.toggle('verticalCollapse');
+    work?.classList.toggle('center');
+    contact?.classList.toggle('horizontalCollapse');
+    about?.classList.toggle('horizontalCollapse');
+  }
+
+  public expandContact(){
+    var modal = document.getElementById('modal');
+    var personalInfo = document.getElementById('personalInfoContainer');
+    var work = document.getElementById('work');
+    var contact = document.getElementById('contact');
+    var about = document.getElementById('about');
+    modal?.classList.toggle('expandAbout');
+    personalInfo?.classList.toggle('verticalCollapse');
+    work?.classList.toggle('horizontalCollapse');
+    contact?.classList.toggle('center');
+    about?.classList.toggle('horizontalCollapse');
   }
 
 }

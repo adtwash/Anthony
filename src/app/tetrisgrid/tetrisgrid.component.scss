@@ -1,10 +1,11 @@
 .grid-container {
   position: relative;
   display: inline-block;
-  background-color: #0d151ae3;
+  background-color: rgb(9 143 171);
   padding: 10px;
   width: 3000px;
-  z-index: 0;
+  z-index: 1;
+  border-radius: 19px;
 }
 
 .grid-item {
@@ -12,6 +13,7 @@
   font-size: 10px;
   text-align: center;
   height: 10px;
+  border-radius: 1px;
 }
 
 .grid-row {
@@ -21,12 +23,17 @@
   width: 100px;
 }
 
+.start{
+  line-height: 50px;
+}
+
 .floatingDiv {
   background: repeating-linear-gradient(to bottom, #0f0a1e, #0f0a1e 2px, #150e29 2px, #150e29 4px);
   font-size: 28px;
-  line-height: 50px;
+  line-height: 30px;
   letter-spacing: 5px;
-  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
+  text-shadow: 0px 0 0 #fdff2a, 0px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
+  //text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
   font-family: "Press Start 2P", cursive;
   position: absolute;
   z-index: 1;
@@ -40,14 +47,45 @@
   color: white;
   height: 50px;
   border-radius: 10px;
-  transition: height 0.4s linear, width 0.4s linear, margin 0.4s linear;
+  transition: height 0.4s linear, width 0.4s linear, margin 0.4s linear, top 0.4s linear;
   opacity: .7;
   overflow: hidden;
 }
 
 .personalInfo{
+  //text-align: left;
+  //margin-left: 30px;
+}
+
+.footer{
+  display:flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.about{
+  width: 225px;
+  padding-right: 60px;
   text-align: left;
-  margin-left: 30px;
+  //transition: width 0.4s linear, height 0.4s linear, margin 0.4s linear;
+  transition: transform 500ms ease-in-out, width 500ms linear, padding-right 500ms linear;
+  overflow: hidden;
+}
+
+.work{
+  width: 285px;
+  text-align: center;
+  //transition: width 0.4s linear, height 0.4s linear;
+  transition: transform 500ms ease-in-out, width 500ms linear;
+  overflow: hidden;
+}
+
+.contact{
+  width: 285px;
+  text-align: right;
+  //transition: width 0.4s linear, height 0.4s linear;
+  transition: transform 500ms ease-in-out, width 500ms linear;
+  overflow: hidden;
 }
 
 .blinking {
@@ -61,6 +99,11 @@
   opacity: .96;
 }
 
+.expandAbout{
+  height: 720px;
+  top: 20%;
+}
+
 .paused {
   animation-play-state: paused;
 }
@@ -69,26 +112,80 @@
   display: inline-block;
   width: 100%;
   text-align: center;
-  background-color: rgba(13, 21, 26, 1);
-  height: 100%;
+  //background-color: rgba(13, 21, 26, 1);
+   height: 100%;
 }
 
 .typeTest {
-  //width: 0;
+  width: 0px;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .2em solid transparent; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
- //margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  animation: 
-  typing 2.5s steps(12, end),
-  blink-caret .75s step-end 7;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation-fill-mode: forwards;
+  //animation-delay: 2s;
   display: inline-flex;
+}
+
+.personalInfoContainer{
+  height: 120px;
+  transition: height 0.4s linear;
+  overflow: hidden;
+}
+
+.verticalCollapse{
+  height: 0px;
+}
+
+.horizontalCollapse{
+  width: 0px;
+  transform: scaleY(0);
+  padding-right: 0px;
+}
+
+.center{
+  text-align: center;
+  padding-right: 0px;
+}
+
+.highlight:hover{
+  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
+  cursor: pointer;
+}
+
+.animateName{
+  margin-top: 10px;
+  line-height: 40px;
+  margin-top: 10px;
+  animation:   
+  blink-caret .75s step-end 8,
+  typingName 3s steps(12, end);
+  animation-fill-mode: forwards;
+}
+
+.animatePosition{
+  font-size: 18px;
+  letter-spacing: 1px;
+  animation:
+  blink-caret .75s step-end 10,
+  typingPosition 8s steps(34, end);
+  animation-fill-mode: forwards;
+  animation-delay: 6s;
+}
+
+.animatePosition2{
+  font-size: 18px;
+  letter-spacing: 1px;
+  animation:
+  blink-caret .75s step-end 10,
+  typingPosition2 2s steps(16, end);
+  animation-fill-mode: forwards;
+  animation-delay: 13s;
 }
 
 .name{
   display: inline-flex;
   overflow: hidden;
-  padding-left: 5px;
 }
 
 .hidden{
@@ -105,9 +202,19 @@
 }
 
 /* The typing effect */
-@keyframes typing {
-  from { width: 0px }
-  to { width: 394px }
+@keyframes typingName {
+  0%, 50% { width: 0px }
+  90%, 100% { width: 394px }
+}
+
+@keyframes typingPosition {
+  0%, 50% { width: 0px }
+  90%, 100% { width: 644px }
+}
+
+@keyframes typingPosition2 {
+  0%, 10% { width: 0px }
+  90%, 100% { width: 303px }
 }
 
 /* The typewriter cursor effect */
