@@ -69,6 +69,7 @@
   text-align: left;
   //transition: width 0.4s linear, height 0.4s linear, margin 0.4s linear;
   transition: transform 500ms ease-in-out, width 500ms linear, padding-right 500ms linear;
+  visibility: hidden;
   overflow: hidden;
 }
 
@@ -77,6 +78,7 @@
   text-align: center;
   //transition: width 0.4s linear, height 0.4s linear;
   transition: transform 500ms ease-in-out, width 500ms linear;
+  visibility: hidden;
   overflow: hidden;
 }
 
@@ -85,11 +87,18 @@
   text-align: right;
   //transition: width 0.4s linear, height 0.4s linear;
   transition: transform 500ms ease-in-out, width 500ms linear;
+  visibility: hidden;
   overflow: hidden;
 }
 
 .blinking {
   animation: blink 1s steps(4, start) infinite;
+}
+
+.blinkingBriefly {
+  animation: blink 1s steps(4, start) 5, delayAppear 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 13.5s;
 }
 
 .expanded{
@@ -214,6 +223,11 @@
 @keyframes typingPosition2 {
   0%, 10% { width: 0px }
   90%, 100% { width: 303px }
+}
+
+@keyframes delayAppear {
+  0%, 20% { visibility: hidden }
+  90%, 100% { visibility: visible }
 }
 
 /* The typewriter cursor effect */

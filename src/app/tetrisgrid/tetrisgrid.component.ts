@@ -167,6 +167,13 @@ export class TetrisgridComponent {
   public expandModal(){
     var modal = document.getElementById('modal');
     var start = document.getElementById('start');
+    var about = document.getElementById('about');
+    var contact = document.getElementById('contact');
+    var work = document.getElementById('work');
+
+    about?.classList.add('blinkingBriefly');
+    contact?.classList.add('blinkingBriefly');
+    work?.classList.add('blinkingBriefly');
     modal?.classList.remove('blinking');
     modal?.classList.add('expanded');
     modal?.classList.add('paused');
