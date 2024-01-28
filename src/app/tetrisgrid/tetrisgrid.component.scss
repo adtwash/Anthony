@@ -158,8 +158,7 @@
   line-height: 40px;
   margin-top: 10px;
   animation:   
-  blink-caret .75s step-end 8,
-  typingName 3s steps(12, end);
+  blink-caret .75s step-end 8, typingname 3s steps(12, end);
   animation-fill-mode: forwards;
 }
 
@@ -202,7 +201,7 @@
 }
 
 /* The typing effect */
-@keyframes typingName {
+@keyframes typingname {
   0%, 50% { width: 0px }
   90%, 100% { width: 394px }
 }
