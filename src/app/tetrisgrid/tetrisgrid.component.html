@@ -22,6 +22,69 @@
             <span class="work highlight" id="work" (click)="expandWork()">[Work]</span>
             <span class="contact highlight" id="contact" (click)="expandContact()">[Contact]</span>
         </div>
-
+        <div class="aboutMe remove" id="aboutMe">
+            <div class="aboutMeContent">
+                <img src="assets/me.png" class="myImage">
+                <p class="aboutMeDescription">
+                    Welcome! My name is Anthony Wash, I am a professional Software Test Engineer and Developer.<br />
+                    <br />
+                    In 2014, I graduated from The University of Virginia with a Bachelor of Science in Computer
+                    Engineering, with a particular focus on hardware design, embedded systems, and computer science.
+                    <br />
+                    <br />
+                    The majority of my career has been spent designing and implementing enterprise level test automation
+                    suites for a variety of companies.
+                    My favorite part of my job is teaching others, and enabling my peers to reach their full potential.
+                    <br />
+                    <br />
+                    In my free time, I enjoy playing video games, creating music, exercising, and eating Mexican food.
+                </p>
+            </div>
+        </div>
+        <div class="workInfo remove" id="workInfo">
+            <div class="workContent">
+                <div class="workDescription borderHover" (click)="openWillowtreeLink()">
+                    <span class="jobHeader">Senior Test Engineer · Willowtree </span> <br />
+                    <span class="jobHeader">2021 - Present</span>
+                    <br />
+                    <p class="jobDescription">
+                        Lead testing teams for Fortune 500 Clients. Implement testing solutions from the ground up to
+                        ensure
+                        high quality products are shipped quickly and efficiently. Mentor and train fellow Test
+                        Engineers.
+                    </p>
+                </div>
+                <div class="workDescription borderHover" (click)="openKinsaleLink()">
+                    <span class="jobHeader">Quality Assurance Analyst · Kinsale Insurance </span> <br />
+                    <span class="jobHeader">2020 - 2021</span>
+                    <br />
+                    <p class="jobDescription">
+                        Improved testing processes and overall automated test coverage of mission critial in-house
+                        underwriting web applications.
+                        Trained and advised my colleagues on best practices for automation and general coding.
+                    </p>
+                </div>
+                <div class="workDescription borderHover" (click)="openCFALink()">
+                    <span class="jobHeader">Senior Quality Asssurance Analyst · CFA Institute </span> <br />
+                    <span class="jobHeader">2014 - 2020</span>
+                    <br />
+                    <p class="jobDescription">
+                        Led testing efforts, trained and advised team on technical testing aspects. Acted as liason
+                        between business and development resources.
+                        Primary architect of Tosca test suite implementation. Signifigantly reduced regression run-time
+                        while increasing test coverage
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="remove" id="contactInfo">
+            <div class="contactInfo" id="contactInfo">
+                <img src="assets/LI-Logo.png" class="liImage borderHover" (click)="openLinkedIn()">
+                <img src="assets/GitHub_Logo_White.png" class="githubImage borderHover" (click)="openGithub()">
+                <a [href]="email()" target=”_blank”> 
+                    <img src="assets/Gmail_Logo_256px.png" class="googleImage borderHover">
+                </a>
+            </div>
+        </div>
     </div>
 </div>

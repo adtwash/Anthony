@@ -48,9 +48,14 @@ export class TetrisgridComponent {
     return tempgrid;
   }
 
-  public changeColor(column: number, row: number, color:string='blue'): void {
+  public changeColor(column: number, row: number, color:string='blue', border: boolean = false): void {
     var id = `x${String(column)}y${String(row)}`;
     document.getElementById(id)!.style.backgroundColor= color;
+    if(border){
+      document.getElementById(id)!.classList.add('tetromino');
+    }else{
+      document.getElementById(id)!.classList.remove('tetromino');
+    }
   }
 
   public colorDropTest(): void{
@@ -65,12 +70,10 @@ export class TetrisgridComponent {
         }else{
           // check if piece triggers game over
           if(this.pieceOutOfBounds(piece, this.gridHeight) && this.grid[this.gridHeight - block[1] + 1][block[0] -1].filled == true){
-            ///end=true;
             piece.dead = true;
             gameover=true;
           }
           else if(block[1] <= this.gridHeight && this.grid[this.gridHeight - block[1] + 1][block[0] -1].filled == true){
-            //end=true
             piece.dead = true;
           }
         }
@@ -86,7 +89,7 @@ export class TetrisgridComponent {
         }
         for(var block of piece.coords){
           block[1]-=1;
-          this.changeColor(block[0],block[1], piece.color);
+          this.changeColor(block[0],block[1], piece.color, true);
         }
       //otherwise lock piece in place and save to grid
       }else{ 
@@ -108,11 +111,11 @@ export class TetrisgridComponent {
     }
   }
 
-  public stopTetris(){
+  public stopTetris(): void {
 
   }
 
-  public resetGrid(){
+  public resetGrid(): void {
     for(var row of this.grid){
       for(var cell of row){
         this.changeColor(cell.column,cell.row, '#0d151ae3');
@@ -164,7 +167,7 @@ export class TetrisgridComponent {
     }
   }
 
-  public expandModal(){
+  public expandModal(): void {
     var modal = document.getElementById('modal');
     var start = document.getElementById('start');
     var about = document.getElementById('about');
@@ -181,7 +184,7 @@ export class TetrisgridComponent {
     this.typeTest();
   }
 
-  public typeTest(){
+  public typeTest(): void {
     var name = document.getElementById('name');
     var position = document.getElementById('position');
     var position2 = document.getElementById('position2');
@@ -191,43 +194,84 @@ export class TetrisgridComponent {
     position2?.classList.add('animatePosition2');
   }
 
-  public expandAbout(){
+  public expandAbout(): void {
     var modal = document.getElementById('modal');
     var personalInfo = document.getElementById('personalInfoContainer');
     var work = document.getElementById('work');
     var contact = document.getElementById('contact');
     var about = document.getElementById('about');
+    var aboutMe = document.getElementById('aboutMe');
+    var workInfo = document.getElementById('workInfo');
+    var contactInfo = document.getElementById('contactInfo');
     modal?.classList.toggle('expandAbout');
     personalInfo?.classList.toggle('verticalCollapse');
     work?.classList.toggle('horizontalCollapse');
     contact?.classList.toggle('horizontalCollapse');
     about?.classList.toggle('center');
+    aboutMe?.classList.remove('remove');
+    workInfo?.classList.add('remove');
+    contactInfo?.classList.add('remove');
   }
 
-  public expandWork(){
+  public expandWork(): void {
     var modal = document.getElementById('modal');
     var personalInfo = document.getElementById('personalInfoContainer');
     var work = document.getElementById('work');
     var contact = document.getElementById('contact');
     var about = document.getElementById('about');
+    var aboutMe = document.getElementById('aboutMe');
+    var workInfo = document.getElementById('workInfo');
+    var contactInfo = document.getElementById('contactInfo');
     modal?.classList.toggle('expandAbout');
     personalInfo?.classList.toggle('verticalCollapse');
     work?.classList.toggle('center');
     contact?.classList.toggle('horizontalCollapse');
     about?.classList.toggle('horizontalCollapse');
+    aboutMe?.classList.add('remove');
+    workInfo?.classList.remove('remove');
+    contactInfo?.classList.add('remove');
   }
 
-  public expandContact(){
+  public expandContact(): void {
     var modal = document.getElementById('modal');
     var personalInfo = document.getElementById('personalInfoContainer');
     var work = document.getElementById('work');
     var contact = document.getElementById('contact');
     var about = document.getElementById('about');
-    modal?.classList.toggle('expandAbout');
+    var aboutMe = document.getElementById('aboutMe');
+    var workInfo = document.getElementById('workInfo');
+    var contactInfo = document.getElementById('contactInfo');
+    modal?.classList.toggle('expandContact');
     personalInfo?.classList.toggle('verticalCollapse');
     work?.classList.toggle('horizontalCollapse');
     contact?.classList.toggle('center');
     about?.classList.toggle('horizontalCollapse');
+    aboutMe?.classList.add('remove');
+    workInfo?.classList.add('remove');
+    contactInfo?.classList.remove('remove');
   }
 
+  public openWillowtreeLink(): void {
+    window.open('https://www.willowtreeapps.com/', '_blank');
+  }
+
+  public openKinsaleLink(): void {
+    window.open('https://www.kinsaleins.com/', '_blank');
+  }
+
+  public openCFALink(): void {
+    window.open('https://www.cfainstitute.org/', '_blank');
+  }
+
+  public openLinkedIn(): void {
+    window.open('https://www.linkedin.com/in/anthony-wash-9b365380/', '_blank');
+  }
+
+  public openGithub(): void {
+    window.open('https://github.com/adtwash', '_blank');
+  }
+
+  public email(): string {
+    return "mailto:adtwash@gmail.com?subject=Hi%20Anthony!";
+  }
 }

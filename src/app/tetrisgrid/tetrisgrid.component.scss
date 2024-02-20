@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   background-color: rgb(9 143 171);
-  padding: 10px;
+  padding: 8px;
   width: 3000px;
   z-index: 1;
   border-radius: 19px;
@@ -16,6 +16,12 @@
   border-radius: 1px;
 }
 
+.tetromino{
+  outline: 1px solid  rgba(13, 21, 26, 0.2);;
+  outline-offset: -1px;
+  border-radius: 0px;
+}
+
 .grid-row {
   display: grid;
   grid-template-columns: repeat(1000, 10px);
@@ -25,6 +31,7 @@
 
 .start{
   line-height: 50px;
+  cursor: pointer;
 }
 
 .floatingDiv {
@@ -98,7 +105,7 @@
 .blinkingBriefly {
   animation: blink 1s steps(4, start) 5, delayAppear 10s;
   animation-fill-mode: forwards;
-  animation-delay: 13.5s;
+  animation-delay: 9.5s;
 }
 
 .expanded{
@@ -109,8 +116,18 @@
 }
 
 .expandAbout{
-  height: 720px;
+  height: 755px;
   top: 20%;
+}
+
+.expandContact{
+  height: 300px;
+  top: 42%;
+}
+
+.expand{
+  height: 845px;
+  top: 16%;
 }
 
 .paused {
@@ -167,7 +184,7 @@
   line-height: 40px;
   margin-top: 10px;
   animation:   
-  blink-caret .75s step-end 8, typingname 3s steps(12, end);
+  blink-caret .75s step-end 6, typingname 3s steps(12, end);
   animation-fill-mode: forwards;
 }
 
@@ -175,22 +192,66 @@
   font-size: 18px;
   letter-spacing: 1px;
   animation:
-  blink-caret .75s step-end 10,
-  typingPosition 8s steps(34, end);
+  blink-caret .75s step-end 5,
+  typingPosition 4s steps(34, end);
   animation-fill-mode: forwards;
-  animation-delay: 6s;
+  animation-delay: 4.5s;
 }
 
 .animatePosition2{
   font-size: 18px;
   letter-spacing: 1px;
   animation:
-  blink-caret .75s step-end 10,
+  blink-caret .75s step-end 4,
   typingPosition2 2s steps(16, end);
   animation-fill-mode: forwards;
-  animation-delay: 13s;
+  animation-delay: 8.25s;
 }
 
+.aboutMe{
+  justify-content: center;
+  display: flex;
+}
+
+.aboutMeContent{
+  width: 90%;
+  text-align: center;
+  font-family: "DPComic", cursive;
+  text-shadow: none;
+}
+
+.myImage{
+  height: 200px;
+  margin-top: 20px;
+}
+
+.aboutMeDescription{
+  justify-content: center;
+  display: flex;
+  text-align: left;
+  margin-top: 20px;
+  line-height: 23px;
+}
+
+.workContent{
+  font-family: "DPComic", cursive;
+  text-shadow: none;
+  text-align: left;
+  margin-top: 20px;
+  line-height: 23px;
+}
+
+.workDescription{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 10px 15px 10px;
+}
+
+.jobDescription{
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 .name{
   display: inline-flex;
   overflow: hidden;
@@ -200,6 +261,51 @@
   visibility: hidden;
   color: transparent;
   text-shadow: none;
+}
+
+.remove{
+  display:none;
+}
+
+.contactInfo{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.liImage{
+  width: 165px;
+  margin: 0 auto;
+  padding: 5px 5px 5px 5px;
+}
+
+.googleImage{
+  height: 50px;
+  width: 81px;
+  margin: 0 auto;
+  padding: 5px 5px 5px 5px;
+}
+
+.githubImage{
+  width: 165px;
+  margin: 0 auto;
+}
+
+.borderHover:hover{
+  border-color: #2196F3;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px; 
+}
+
+.borderHover{
+  cursor: pointer;
+  border-color:rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px; 
+  //animation: border-hover .25s step-end 6;
+  transition: border-color 0.6s linear;
 }
 
 
@@ -216,8 +322,8 @@
 }
 
 @keyframes typingPosition {
-  0%, 50% { width: 0px }
-  90%, 100% { width: 644px }
+  0%, 10% { width: 0px }
+  100% { width: 644px }
 }
 
 @keyframes typingPosition2 {
